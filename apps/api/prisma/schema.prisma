@@ -17,5 +17,26 @@ model Sample {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("samples") // if you want to use snake_case format
+  @@map("samples")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String   @unique
+  firstName String
+  lastName  String
+  role      String
+  position  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  isDeleted Boolean  @default(false)
+}
+
+model Item {
+  id       Int    @id @default(autoincrement())
+  itemName String
+  price    Int
+  qty      Int
+  detail   String
 }
